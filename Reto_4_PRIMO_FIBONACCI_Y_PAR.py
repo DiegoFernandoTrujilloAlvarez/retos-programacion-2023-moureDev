@@ -15,8 +15,8 @@ def esprimo(numero):
     if numero == 1:
         return False
     
-    for n in range(2, numero+1):
-        if (numero/n) % 2 == 0:
+    for n in range(2, int((numero/2)+1)):
+        if numero%n == 0:
             return False
         
     return True
@@ -38,8 +38,6 @@ espar = espar(numero)
 esprimo = esprimo(numero)
 esfibonacci = esfibonacci(numero)
 
-result = 'es primo, es fibonacci y es impar'
-
 if not esprimo:
     primo = 'no es primo'
 else:
@@ -55,9 +53,6 @@ else:
 
 result = f'{numero} {primo}, {fibonacci} y {par}'
 
-print(espar)
-print(esprimo)
-print(esfibonacci)
 print(result)
 
 
