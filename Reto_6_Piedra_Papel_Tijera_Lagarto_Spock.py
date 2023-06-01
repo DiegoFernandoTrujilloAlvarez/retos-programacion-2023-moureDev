@@ -12,55 +12,24 @@ papel, tijera, lagarto, spock.
 puntosJugador1 = 0
 puntosJugador2 = 0
 
-#jugadas  = [("piedra","tijera"),("tijera","piedra"),("papel","tijera")]
-jugadas  = [("tijera","tijera"),("piedra","piedra")]
+jugadas  = [("piedra","tijera"),("tijera","piedra"),("papel","tijera")]
+#jugadas  = [("tijera","tijera"),("piedra","piedra")]
+
+ganador = {
+    "tijera": ["papel","lagarto"],
+    "piedra": ["tijera","lagarto"],
+    "papel": ["spock","piedra"],
+    "lagarto": ["piedra","papel"],
+    "spock": ["tijera","piedra"]
+}
 
 for jugada in jugadas:
 
-    if jugada[0] == "tijera" and jugada[1] == "papel":
-        puntosJugador1 += 1
-    elif jugada[0] == "tijera" and jugada[1] == "lagarto":
-        puntosJugador1 += 1
-    elif jugada[0] == "papel" and jugada[1] == "tijera":
+    if jugada[0] in ganador[jugada[1]]:
         puntosJugador2 += 1
-    elif jugada[0] == "lagarto" and jugada[1] == "tijera":
-        puntosJugador2 += 1
-    elif jugada[0] == "papel" and jugada[1] == "spock":
+    elif jugada[1] in ganador[jugada[0]]:
         puntosJugador1 += 1
-    elif jugada[0] == "papel" and jugada[1] == "piedra":
-        puntosJugador1 += 1
-    elif jugada[0] == "spock" and jugada[1] == "papel":
-        puntosJugador2 += 1
-    elif jugada[0] == "piedra" and jugada[1] == "papel":
-        puntosJugador2 += 1
-    elif jugada[0] == "piedra" and jugada[1] == "tijera":
-        puntosJugador1 += 1
-    elif jugada[0] == "piedra" and jugada[1] == "lagarto":
-        puntosJugador1 += 1
-    elif jugada[0] == "tijera" and jugada[1] == "piedra":
-        puntosJugador2 += 1
-    elif jugada[0] == "lagarto" and jugada[1] == "piedra":
-        puntosJugador2 += 1
-    elif jugada[0] == "lagarto" and jugada[1] == "papel":
-        puntosJugador1 += 1
-    elif jugada[0] == "lagarto" and jugada[1] == "spock":
-        puntosJugador1 += 1
-    elif jugada[0] == "papel" and jugada[1] == "lagarto":
-        puntosJugador2 += 1
-    elif jugada[0] == "spock" and jugada[1] == "lagarto":
-        puntosJugador2 += 1
-    elif jugada[0] == "spock" and jugada[1] == "tijera":
-        puntosJugador1 += 1
-    elif jugada[0] == "spock" and jugada[1] == "piedra":
-        puntosJugador1 += 1
-    elif jugada[0] == "tijera" and jugada[1] == "spock":
-        puntosJugador2 += 1
-    elif jugada[0] == "piedra" and jugada[1] == "spock":
-        puntosJugador2 += 1
 
-
-print(puntosJugador1)
-print(puntosJugador2)
 if puntosJugador1 > puntosJugador2:
     print("Player 1")
 elif puntosJugador2 > puntosJugador1:
