@@ -21,10 +21,28 @@ PuntosSup = 0
 
 
 Preguntas = [
-    {"Pregunta": "Te gusta ser el máximo daño del equipo?",
-     "Respuestas": [{"Si, el máximo daño aunque tenga poca vida": {"Top": 1,"Jg": 2,"Mid": 3, "Adc": 5 , "Sup": 0}},
-                    ]
-     },
+    {
+        "Pregunta": "Te gusta ser el máximo daño del equipo?",
+        "Respuestas": [
+            {
+                "Respuesta": "Si, el máximo daño aunque tenga poca vida",
+                "Top": 1,
+                "Jg": 2,
+                "Mid": 3,
+                "Adc": 5,
+                "Sup": 0,
+            },
+        ],
+    },
 ]
 
-print(Preguntas[0])
+
+print(Preguntas[0]["Pregunta"])
+print(Preguntas[0]["Respuestas"])
+print(Preguntas[0]["Respuestas"][0])
+print(Preguntas[0]["Respuestas"][0]["Respuesta"])
+print(Preguntas[0]["Respuestas"][0]["Top"])
+print(Preguntas[0]["Respuestas"][0]["Jg"])
+print(Preguntas[0]["Respuestas"][0]["Mid"])
+print(Preguntas[0]["Respuestas"][0]["Adc"])
+print(Preguntas[0]["Respuestas"][0]["Sup"])
