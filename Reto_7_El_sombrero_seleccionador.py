@@ -20,5 +20,11 @@ PuntosAdc = 0
 PuntosSup = 0
 
 
+Preguntas = [
+    {"Pregunta": "Te gusta ser el máximo daño del equipo?",
+     "Respuestas": [{"Si, el máximo daño aunque tenga poca vida": {"Top": 1,"Jg": 2,"Mid": 3, "Adc": 5 , "Sup": 0}},
+                    ]
+     },
+]
 
-
+print(Preguntas[0])
