@@ -36,13 +36,23 @@ Preguntas = [
     },
 ]
 
+for pregunta in Preguntas:
+    print(pregunta["Pregunta"])
+    count = 1
+    for respuesta in pregunta["Respuestas"]:
+      print(f"{count}. {str(respuesta['Respuesta'])}")
+      count += 1
+    respuestaUsuario = int(input('Tu respuesta: '))
 
-print(Preguntas[0]["Pregunta"])
-print(Preguntas[0]["Respuestas"])
-print(Preguntas[0]["Respuestas"][0])
-print(Preguntas[0]["Respuestas"][0]["Respuesta"])
-print(Preguntas[0]["Respuestas"][0]["Top"])
-print(Preguntas[0]["Respuestas"][0]["Jg"])
-print(Preguntas[0]["Respuestas"][0]["Mid"])
-print(Preguntas[0]["Respuestas"][0]["Adc"])
-print(Preguntas[0]["Respuestas"][0]["Sup"])
+    PuntosTop += pregunta["Respuestas"][respuestaUsuario-1]["Top"]
+    PuntosJg += pregunta["Respuestas"][respuestaUsuario-1]["Jg"]
+    PuntosMid += pregunta["Respuestas"][respuestaUsuario-1]["Mid"]
+    PuntosAdc += pregunta["Respuestas"][respuestaUsuario-1]["Adc"]
+    PuntosSup += pregunta["Respuestas"][respuestaUsuario-1]["Sup"]
+
+
+print(PuntosTop)
+print(PuntosJg)
+print(PuntosMid)
+print(PuntosAdc)
+print(PuntosSup)
