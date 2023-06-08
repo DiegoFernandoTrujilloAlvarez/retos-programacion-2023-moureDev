@@ -12,13 +12,13 @@ Edit:
 Se cambia la prueba a elegir que linea del juego League Of Leguends debería jugar
   
 """
-
-PuntosTop = 0
-PuntosJg = 0
-PuntosMid = 0
-PuntosAdc = 0
-PuntosSup = 0
-
+Puntajes = {
+    "PuntosTop": 0,
+    "PuntosJg": 0,
+    "PuntosMid": 0,
+    "PuntosAdc": 0,
+    "PuntosSup": 0,
+}
 
 Preguntas = [
     {
@@ -40,19 +40,20 @@ for pregunta in Preguntas:
     print(pregunta["Pregunta"])
     count = 1
     for respuesta in pregunta["Respuestas"]:
-      print(f"{count}. {str(respuesta['Respuesta'])}")
-      count += 1
-    respuestaUsuario = int(input('Tu respuesta: '))
+        print(f"{count}. {str(respuesta['Respuesta'])}")
+        count += 1
+    respuestaUsuario = int(input("Tu respuesta: "))
 
-    PuntosTop += pregunta["Respuestas"][respuestaUsuario-1]["Top"]
-    PuntosJg += pregunta["Respuestas"][respuestaUsuario-1]["Jg"]
-    PuntosMid += pregunta["Respuestas"][respuestaUsuario-1]["Mid"]
-    PuntosAdc += pregunta["Respuestas"][respuestaUsuario-1]["Adc"]
-    PuntosSup += pregunta["Respuestas"][respuestaUsuario-1]["Sup"]
+    Puntajes["PuntosTop"] += pregunta["Respuestas"][respuestaUsuario - 1]["Top"]
+    Puntajes["PuntosJg"]  += pregunta["Respuestas"][respuestaUsuario - 1]["Jg"]
+    Puntajes["PuntosMid"]  += pregunta["Respuestas"][respuestaUsuario - 1]["Mid"]
+    Puntajes["PuntosAdc"]  += pregunta["Respuestas"][respuestaUsuario - 1]["Adc"]
+    Puntajes["PuntosSup"]  += pregunta["Respuestas"][respuestaUsuario - 1]["Sup"]
 
 
-print(PuntosTop)
-print(PuntosJg)
-print(PuntosMid)
-print(PuntosAdc)
-print(PuntosSup)
+puntajeMaximo = max(Puntajes, key=Puntajes.get)
+
+if puntajeMaximo == "PuntosAdc":
+    print("Tu linea que deberias jugar es: ADC")
+else:
+    print("WTF ESTO NO DEBERIA PASAR")
