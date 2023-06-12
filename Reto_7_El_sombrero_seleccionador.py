@@ -12,6 +12,15 @@ Edit:
 Se cambia la prueba a elegir que linea del juego League Of Leguends debería jugar
   
 """
+
+def dic_valores_repetidos(puntajes, valor):
+    dups = {}
+    for k, v in puntajes.items():
+        if v == valor:
+            dups[k] = v
+    return dups
+
+
 Puntajes = {
     "PuntosTop": 0,
     "PuntosJg": 0,
@@ -28,12 +37,21 @@ Preguntas = [
                 "Respuesta": "Si, el máximo daño aunque tenga poca vida",
                 "Top": 1,
                 "Jg": 2,
-                "Mid": 3,
+                "Mid": 4,
                 "Adc": 5,
                 "Sup": 0,
             },
+            {
+                "Respuesta": "No, prefiero colaborar con el equipo",
+                "Top": 4,
+                "Jg": 2,
+                "Mid": 2,
+                "Adc": 1,
+                "Sup": 5,
+            },
         ],
     },
+    
 ]
 
 for pregunta in Preguntas:
@@ -51,9 +69,24 @@ for pregunta in Preguntas:
     Puntajes["PuntosSup"]  += pregunta["Respuestas"][respuestaUsuario - 1]["Sup"]
 
 
-puntajeMaximo = max(Puntajes, key=Puntajes.get)
 
-if puntajeMaximo == "PuntosAdc":
-    print("Tu linea que deberias jugar es: ADC")
-else:
-    print("WTF ESTO NO DEBERIA PASAR")
+puntajeMaximo = max(Puntajes.values())
+
+resultado = dic_valores_repetidos(Puntajes, puntajeMaximo)
+
+
+respuesta = f"Tu linea o lineas que deberías jugar es o son: "
+
+if resultado.get("PuntosTop"):
+    respuesta = f"{respuesta}TOP"
+if resultado.get("PuntosJg"):
+    respuesta = f"{respuesta} JG"
+if resultado.get("PuntosMid"):
+    respuesta = f"{respuesta} MID"
+if resultado.get("PuntosAdc"):
+    respuesta = f"{respuesta} ADC"
+if resultado.get("PuntosSup"):
+    respuesta = f"{respuesta} SUP"
+
+
+print(respuesta)
